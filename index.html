@@ -16,7 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap"
     rel="stylesheet">
 
- <style>
+  <style>
     :root {
       --bg-color: #0b0a0a;
       --card-bg: #141312;
@@ -33,7 +33,8 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       background-color: var(--bg-color);
       color: var(--text-white);
       font-family: 'Space Grotesk', sans-serif;
@@ -310,8 +311,15 @@
     }
 
     @keyframes pulse-soldout {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.04); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.04);
+      }
     }
 
     .badge-cancelled {
@@ -659,6 +667,25 @@
         display: none !important;
       }
 
+      /* Ajuste de canciones en móvil: artista debajo para que no se corte nada */
+      .song-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 3px !important;
+        padding: 10px 14px !important;
+      }
+
+      .song-item span:first-child {
+        white-space: normal !important;
+        line-height: 1.25 !important;
+      }
+
+      .song-artist {
+        text-align: left !important;
+        white-space: normal !important;
+        font-size: 0.78rem !important;
+      }
+
       .container {
         padding-left: 14px !important;
         padding-right: 14px !important;
@@ -676,7 +703,8 @@
         font-size: 2.2rem !important;
       }
 
-      nav ul, nav .nav-links {
+      nav ul,
+      nav .nav-links {
         display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
@@ -756,7 +784,7 @@
       }
 
       /* Line-up de 4 integrantes compacto en móvil */
-      #quienes-somos > div[style*="display: flex"] {
+      #quienes-somos>div[style*="display: flex"] {
         gap: 6px !important;
         padding: 14px 8px !important;
       }
