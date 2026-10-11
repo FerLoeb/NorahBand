@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NORAH | Pop-Rock Covers Band</title>
 
   <!-- Tipografías de cartel rock / brutalistas -->
@@ -645,104 +645,121 @@
       }
 
     /* =========================================
-       CORRECCIÓN PARA MÓVILES (RESPONSIVE FIX)
+       CORRECCIÓN TOTAL PARA MÓVIL (RESPONSIVE)
        ========================================= */
-    
-    /* 1. Evitar cualquier desbordamiento lateral */
     html, body {
-      max-width: 100vw;
+      width: 100% !important;
+      max-width: 100vw !important;
       overflow-x: hidden !important;
+      position: relative;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1050px;
-      padding: 0 16px;
-      overflow-x: hidden;
+    /* Anular el destello que empuja la pantalla hacia la derecha */
+    .glow-overlay {
+      display: none !important;
     }
 
-    /* 2. Ajustes específicos para pantallas pequeñas */
     @media (max-width: 768px) {
-      /* Navegación limpia en móvil: logo centrado y menú en fila scrolleable o más compacto */
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+      }
+
+      /* 1. Menú de navegación ordenado verticalmente */
       nav {
-        flex-direction: column;
-        gap: 12px;
-        padding: 16px 0;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        padding: 16px 0 !important;
       }
 
-      .logo {
-        font-size: 2rem;
+      nav .logo {
+        font-size: 2.2rem !important;
       }
 
-      .nav-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px 14px;
-        padding: 0;
+      nav ul, nav .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px 14px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        width: 100% !important;
       }
 
-      .nav-links a {
-        font-size: 0.78rem;
-        letter-spacing: 1px;
+      nav a {
+        font-size: 0.8rem !important;
+        letter-spacing: 1px !important;
       }
 
-      /* Hero y títulos */
+      /* 2. Hero adaptado al ancho de pantalla */
       .hero {
-        padding: 30px 0 20px;
+        padding: 25px 0 20px !important;
       }
 
       .band-title-3d {
-        font-size: clamp(4.5rem, 22vw, 7rem) !important;
+        font-size: 19vw !important;
+        letter-spacing: 1px !important;
+        word-break: normal !important;
       }
 
       .hero-meta {
-        font-size: 1.2rem;
-        gap: 6px;
+        font-size: 1.15rem !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        margin-top: 15px !important;
       }
 
       .hero-actions {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-        padding: 0 10px;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-top: 25px !important;
       }
 
       .hero-actions .btn {
-        width: 100%;
-        padding: 12px 16px;
-        text-align: center;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
       }
 
-      /* Titulares de sección */
+      /* 3. Títulos de sección */
       .section-title {
-        font-size: 2.2rem;
-        flex-wrap: wrap;
-      }
-
-      /* Canales de contacto (WhatsApp y Email) en una columna */
-      .contact-channels {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      /* Línea de integrantes / Line-up ajustada */
-      #quienes-somos > div[style*="display: flex"] {
+        font-size: 2.2rem !important;
+        flex-wrap: wrap !important;
         gap: 8px !important;
+      }
+
+      /* 4. Canales de contacto en una sola columna */
+      .contact-channels {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      /* 5. Line-up de 4 integrantes adaptado a móvil */
+      #quienes-somos > div[style*="display: flex"] {
+        gap: 6px !important;
         padding: 14px 8px !important;
       }
-      
-      #quienes-somos img {
-        width: 58px !important;
-        height: 58px !important;
+
+      #quienes-somos div[style*="width: 75px"] {
+        width: 55px !important;
+        height: 55px !important;
       }
 
       #quienes-somos h4 {
-        font-size: 0.95rem !important;
+        font-size: 0.9rem !important;
       }
 
       #quienes-somos span {
-        font-size: 0.75rem !important;
+        font-size: 0.72rem !important;
       }
     }
 
