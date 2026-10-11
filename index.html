@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NORAH | Pop-Rock Covers Band</title>
+
+  <!-- Tipografías de cartel rock / brutalistas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #0b0a0a;
+      --card-bg: #141312;
+      --orange: #eb4426;
+      --orange-bright: #ff5233;
+      --text-white: #f5f2eb;
+      --text-muted: #99938d;
+      --border-grunge: #2a2624;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-white);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Grano analógico y textura de cartel */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.08;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Resplandor lateral cálido */
+    .glow-overlay {
+      position: fixed;
+      top: 0;
+      right: -10vw;
+      width: 50vw;
+      height: 100vh;
+      background: radial-gradient(circle, rgba(235, 68, 38, 0.14) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* NAVEGACIÓN */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.2rem;
+      color: var(--orange);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    /* HERO: TÍTULO 3D EXTRUIDO DEL CARTEL */
+    .hero {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .band-title-3d {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(5.5rem, 18vw, 15rem);
+      line-height: 0.85;
+      text-transform: uppercase;
+      color: var(--orange);
+      letter-spacing: 3px;
+      text-shadow:
+        0 4px 0 #ca3218,
+        0 8px 0 #9f240f,
+        0 12px 0 #721808,
+        0 16px 0 #460c03,
+        0 20px 25px rgba(0, 0, 0, 0.85);
+      user-select: none;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: #dfdbd4;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    /* BOTONES */
+    .btn {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1.5px;
+      padding: 12px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--orange);
+      color: #fff;
+      border: 2px solid var(--orange);
+      box-shadow: 0 4px 15px rgba(235, 68, 38, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--orange-bright);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-white);
+      border: 2px solid #555;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* ENCABEZADOS DE SECCIÓN */
+    .section-title-wrap {
+      margin: 70px 0 30px;
+      border-bottom: 2px solid var(--border-grunge);
+      padding-bottom: 15px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 3px;
+      display: flex;
+      align-items: baseline;
+      gap: 15px;
+    }
+
+    .section-title span {
+      color: var(--orange);
+    }
+
+    .section-title.past-title {
+      opacity: 0.55;
+    }
+
+    /* CUADRÍCULA Y TARJETAS DE CONCIERTO */
+    .concerts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .concert-card {
+      background: var(--card-bg);
+      border: 2px solid var(--orange);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .concert-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+      pointer-events: none;
+    }
+
+    .concert-datetime {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.7rem;
+      color: var(--orange);
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .concert-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .concert-place {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    /* ESTADOS ESPECIALES */
+    .badge-past {
+      display: inline-block;
+      background: #252321;
+      color: #8c857e;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      border: 1px solid #443f3b;
+    }
+
+    .past-grid .concert-card {
+      border-color: #383430;
+      opacity: 0.65;
+      filter: grayscale(85%);
+      box-shadow: none;
+    }
+
+    .badge-soldout {
+      display: inline-block;
+      background: #eb4426;
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 3px;
+      box-shadow: 0 0 14px rgba(235, 68, 38, 0.6);
+      animation: pulse-soldout 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-soldout {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.04);
+      }
+    }
+
+    .badge-cancelled {
+      display: inline-block;
+      background: #231210;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 3px;
+    }
+
+    .concert-card.card-cancelled {
+      opacity: 0.6;
+      border-color: #4a201a;
+    }
+
+    .concert-card.card-cancelled .concert-title {
+      text-decoration: line-through;
+      text-decoration-color: var(--orange);
+      text-decoration-thickness: 3px;
+    }
+
+    /* REPERTORIO */
+    .repertoire-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .repertoire-col h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      color: var(--text-white);
+      border-bottom: 2px solid var(--orange);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .song-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .song-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 18px;
+      border-left: 3px solid #444;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .song-item:hover {
+      border-color: var(--orange);
+      background: rgba(235, 68, 38, 0.08);
+    }
+
+    .song-artist {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: scaleY(0.4);
+      }
+
+      50% {
+        transform: scaleY(1);
+      }
+    }
+
+    /* FORMULARIO DE CONTRATACIÓN */
+    .booking-section {
+      margin-bottom: 80px;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      background: var(--card-bg);
+      padding: 30px;
+      border: 1px solid var(--border-grunge);
+      border-radius: 6px;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .booking-form input,
+    .booking-form textarea {
+      width: 100%;
+      background: #0a0909;
+      border: 1px solid #383430;
+      color: #fff;
+      padding: 14px;
+      font-family: inherit;
+      border-radius: 4px;
+    }
+
+    .booking-form input:focus,
+    .booking-form textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+    }
+
+    .btn-submit {
+      width: 100%;
+      border: none;
+      padding: 16px;
+      font-size: 1.6rem;
+    }
+
+    /* BOTONES DE CONTACTO DIRECTO (WHATSAPP & EMAIL) */
+    .contact-channels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .channel-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-grunge);
+      border-radius: 6px;
+      padding: 22px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.25s ease;
+    }
+
+    .channel-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .channel-card.whatsapp:hover {
+      border-color: #25d366;
+    }
+
+    .channel-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .channel-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 1.5px;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .channel-sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* WIDGET VISUAL INSTAGRAM @NORAHBAND */
+    .instagram-showcase {
+      margin-top: 50px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-grunge);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .insta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .insta-profile-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .insta-badge-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+    }
+
+    .insta-badge-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+    }
+
+    .insta-handle {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .insta-subtext {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-insta {
+      padding: 8px 24px;
+      font-size: 1.15rem;
+    }
+
+    /* CARRETE DE FOTOS */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .insta-post {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid #2f2a27;
+      display: block;
+    }
+
+    .insta-post img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(85%) contrast(115%);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .insta-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(235, 68, 38, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .insta-overlay span {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #fff;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+    }
+
+    .insta-post:hover img {
+      transform: scale(1.08);
+      filter: grayscale(0%) contrast(100%);
+    }
+
+    .insta-post:hover .insta-overlay {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .insta-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1f1d1b;
+      padding: 35px 0;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .repertoire-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-form {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow-overlay"></div>
+
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">NORAH</a>
+      <ul class="nav-links">
+        <li><a href="#conciertos">Conciertos</a></li>
+        <li><a href="#repertorio">Repertorio</a></li>
+        <li><a href="#contratacion">Contratación</a></li>
+        <li><a href="#quienes-somos">La Banda</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <h1 class="band-title-3d">NORAH</h1>
+      <div class="hero-meta">
+        <div>MÚSICA EN DIRECTO</div>
+        <div>COVERS DE POP-ROCK</div>
+      </div>
+      <div class="hero-actions">
+        <a href="#conciertos" class="btn btn-primary">VER CONCIERTOS</a>
+        <a href="#contratacion" class="btn btn-secondary">CONTRATAR</a>
+      </div>
+    </header>
+
+    <!-- CONCIERTOS -->
+    <section id="conciertos">
+      <div class="section-title-wrap">
+        <h2 class="section-title">PRÓXIMOS <span>CONCIERTOS</span></h2>
+      </div>
+      <div id="lista-proximos" class="concerts-grid">
+        <p style="color: var(--text-muted);">Cargando fechas...</p>
+      </div>
+
+      <div class="section-title-wrap">
+        <h2 class="section-title past-title">CONCIERTOS <span>PASADOS</span></h2>
+      </div>
+      <div id="lista-pasados" class="concerts-grid past-grid"></div>
+    </section>
+    <!-- SECCIÓN LINE-UP BLINDADA (4 EN LÍNEA FIJOS) -->
+    <section id="quienes-somos" style="margin-top: 50px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">LINE-UP <span>/ INTEGRANTES</span></h2>
+      </div>
+
+      <div
+        style="display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; background: #141312; border: 1px solid #2a2624; border-radius: 6px; padding: 20px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+
+        <!-- INTEGRANTE 1 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div
+            style="width: 75px; height: 75px; border-radius: 50%; border: 2px solid #eb4426; overflow: hidden; margin-bottom: 10px; box-shadow: 0 0 10px rgba(235,68,38,0.3); background: #000;">
+            <img src="img/denisa.jpg"
+              alt="Voz, Guitarra & Teclado"
+              style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(120%); display: block;">
+          </div>
+          <h4
+            style="font-family: 'Anton', sans-serif; font-size: 1.15rem; letter-spacing: 1px; color: #fff; margin: 0; text-transform: uppercase;">
+            DENISA</h4>
+          <span
+            style="font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: #eb4426; letter-spacing: 1px; margin-top: 3px;">VOZ
+            & GUITARRA</span>
+        </div>
+
+        <!-- INTEGRANTE 2 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div
+            style="width: 75px; height: 75px; border-radius: 50%; border: 2px solid #eb4426; overflow: hidden; margin-bottom: 10px; box-shadow: 0 0 10px rgba(235,68,38,0.3); background: #000;">
+            <img src="img/Alex.jpg"
+              alt="Guitarra & Coros"
+              style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(120%); display: block;">
+          </div>
+          <h4
+            style="font-family: 'Anton', sans-serif; font-size: 1.15rem; letter-spacing: 1px; color: #fff; margin: 0; text-transform: uppercase;">
+            ALEX</h4>
+          <span
+            style="font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: #eb4426; letter-spacing: 1px; margin-top: 3px;">VOZ
+            & TECLADOS</span>
+        </div>
+
+        <!-- INTEGRANTE 3 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div
+            style="width: 75px; height: 75px; border-radius: 50%; border: 2px solid #eb4426; overflow: hidden; margin-bottom: 10px; box-shadow: 0 0 10px rgba(235,68,38,0.3); background: #000;">
+            <img src="img/olayo.jpg"
+              alt="Bajo, Teclado y Coros"
+              style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(120%); display: block;">
+          </div>
+          <h4
+            style="font-family: 'Anton', sans-serif; font-size: 1.15rem; letter-spacing: 1px; color: #fff; margin: 0; text-transform: uppercase;">
+            OLAYO</h4>
+          <span
+            style="font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: #eb4426; letter-spacing: 1px; margin-top: 3px;">GUITARRA</span>
+        </div>
+
+        <!-- INTEGRANTE 4 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div
+            style="width: 75px; height: 75px; border-radius: 50%; border: 2px solid #eb4426; overflow: hidden; margin-bottom: 10px; box-shadow: 0 0 10px rgba(235,68,38,0.3); background: #000;">
+            <img src="img/guille.jpeg"
+              alt="Batería"
+              style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(120%); display: block;">
+          </div>
+          <h4
+            style="font-family: 'Anton', sans-serif; font-size: 1.15rem; letter-spacing: 1px; color: #fff; margin: 0; text-transform: uppercase;">
+            GUILLE</h4>
+          <span
+            style="font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: #eb4426; letter-spacing: 1px; margin-top: 3px;">BATERÍA</span>
+        </div>
+
+      </div>
+    </section>
+    <!-- REPERTORIO -->
+    <section id="repertorio" style="margin-top: 50px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">NUESTRO <span>REPERTORIO</span></h2>
+      </div>
+      <div class="repertoire-wrapper">
+        <div class="repertoire-col">
+          <h3>POP-ROCK ESPAÑOL</h3>
+          <ul class="song-list">
+            <li class="song-item"><span>Zapatillas</span> <span class="song-artist">El Canto del Loco</span></li>
+            <li class="song-item"><span>Princesas</span> <span class="song-artist">Pereza</span></li>
+            <li class="song-item"><span>Soldadito Marinero</span> <span class="song-artist">Fito & Fitipaldis</span>
+            </li>
+            <li class="song-item"><span>Años 80</span> <span class="song-artist">Los Piratas</span></li>
+            <li class="song-item"><span>La Mujer de Verde</span> <span class="song-artist">Izal</span></li>
+          </ul>
+        </div>
+        <div class="repertoire-col">
+          <h3>POP-ROCK INGLÉS</h3>
+          <ul class="song-list">
+            <li class="song-item"><span>Do I Wanna Know?</span> <span class="song-artist">Arctic Monkeys</span></li>
+            <li class="song-item"><span>Mr. Brightside</span> <span class="song-artist">The Killers</span></li>
+            <li class="song-item"><span>Basket Case</span> <span class="song-artist">Green Day</span></li>
+            <li class="song-item"><span>Wonderwall</span> <span class="song-artist">Oasis</span></li>
+            <li class="song-item"><span>Sex on Fire</span> <span class="song-artist">Kings of Leon</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECCIÓN VISUAL INSTAGRAM FEED -->
+      <div class="instagram-showcase">
+        <div class="insta-header">
+          <div class="insta-profile-info">
+            <div class="insta-badge-icon">
+              <!-- Icono de Instagram en SVG limpio -->
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="insta-handle">@norahband</h4>
+              <span class="insta-subtext">Directos, ensayos y fechas</span>
+            </div>
+          </div>
+
+          <a href="https://www.instagram.com/norahband/" target="_blank" class="btn btn-primary btn-insta">
+            SEGUIR EN INSTAGRAM
+          </a>
+        </div>
+
+        <!-- FOTOGRAFÍAS TIPO MOSAICO / CARRETE ANALÓGICO -->
+        <div class="insta-grid">
+          <a href="https://www.instagram.com/norahband/" target="_blank" class="insta-post">
+            <img src="img/majadahonda.jpg"
+              alt="Concierto Norah" loading="lazy">
+            <div class="insta-overlay"><span>VER EN INSTAGRAM ↗</span></div>
+          </a>
+          <a href="https://www.instagram.com/norahband/" target="_blank" class="insta-post">
+            <img src="img/todos.jpg"
+              alt="Directo" loading="lazy">
+            <div class="insta-overlay"><span>VER EN INSTAGRAM ↗</span></div>
+          </a>
+          <a href="https://www.instagram.com/norahband/" target="_blank" class="insta-post">
+            <img src="img/Cuerdas.jpg"
+              alt="Directoloading="lazy">
+            <div class="insta-overlay"><span>VER EN INSTAGRAM ↗</span></div>
+          </a>
+          <a href="https://www.instagram.com/norahband/" target="_blank" class="insta-post">
+            <img src="img/boloarte.jpg"
+              alt="Boloarte" loading="lazy">
+            <div class="insta-overlay"><span>VER EN INSTAGRAM ↗</span></div>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CONTRATACIÓN & CONTACTO -->
+    <section id="contratacion" class="booking-section">
+      <div class="section-title-wrap">
+        <h2 class="section-title">CONTRATACIÓN <span>& CONTACTO</span></h2>
+      </div>
+
+      <!-- BOTONES DE CONTACTO DIRECTO -->
+      <div class="contact-channels">
+        <!-- BOTÓN WHATSAPP -->
+        <a href="https://wa.me/34611481810?text=Hola%20NORAH!%20Nos%20gustar%C3%ADa%20consultar%20disponibilidad%20para%20un%20concierto."
+          target="_blank" class="channel-card whatsapp">
+          <div class="channel-icon" style="color: #25d366;">💬</div>
+          <div>
+            <div class="channel-title">WHATSAPP DIRECTO</div>
+            <div class="channel-sub">Escríbenos para bolos o consultas</div>
+          </div>
+        </a>
+
+        <!-- BOTÓN EMAIL DIRECTO A GMAIL WEB -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ale.pereztrueba@gmail.com&su=Contrataci%C3%B3n%20NORAH%20Banda"
+          target="_blank" class="channel-card">
+          <div class="channel-icon" style="color: var(--orange);">✉️</div>
+          <div>
+            <div class="channel-title">CORREO ELECTRÓNICO</div>
+            <div class="channel-sub">ale.pereztrueba@gmail.com</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- FORMULARIO RÁPIDO QUE ABRE EL CORREO REDACTADO -->
+      <form class="booking-form" onsubmit="enviarPorMail(event)">
+        <input type="text" id="form-nombre" placeholder="Nombre o Sala / Evento" required>
+        <input type="text" id="form-fecha" placeholder="Fecha propuesta (ej: 15 de Octubre)">
+        <textarea id="form-mensaje" rows="4" placeholder="Cuéntanos los detalles del bolo (lugar, horario, formato...)"
+          class="form-group-full" required></textarea>
+        <button type="submit" class="btn btn-primary btn-submit form-group-full">ENVIAR VÍA EMAIL</button>
+      </form>
+    </section>
+
+    <footer>
+      <div>@norahband</div>
+      <div>MAJADAHONDA, MADRID</div>
+    </footer>
+  </div>
+
+  <!-- SCRIPT DE CONEXIÓN CON GOOGLE SHEETS -->
+  <script>
+    // ⚠️ REEMPLAZA ESTA URL CON TU ENLACE DE GOOGLE SHEETS TERMINADO EN output=csv
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT0RW3j5VJ-5POrg1IfjQk1Eg4OLwcu8ApwQkwV0aY34p-N9BV_IUGo1Wgcpsgdx5N1d9oC5Kq-SZAf/pub?output=csv';
+
+    function enviarPorMail(e) {
+      e.preventDefault();
+
+      const emailDestino = 'ale.pereztrueba@gmail.com';
+      const nombre = document.getElementById('form-nombre').value;
+      const fecha = document.getElementById('form-fecha').value || 'Por definir';
+      const mensaje = document.getElementById('form-mensaje').value;
+
+      const asunto = encodeURIComponent(`Contratación NORAH - ${nombre}`);
+      const cuerpo = encodeURIComponent(`Hola NORAH,\n\nSoy: ${nombre}\nFecha propuesta: ${fecha}\n\nDetalles del evento:\n${mensaje}`);
+
+      // Enlace directo para redactar en Gmail Web
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailDestino}&su=${asunto}&body=${cuerpo}`;
+
+      // Abre Gmail en una pestaña nueva
+      const ventana = window.open(gmailUrl, '_blank');
+
+      // Si el navegador bloquea la ventana emergente, fallback al enlace mailto tradicional
+      if (!ventana || ventana.closed || typeof ventana.closed === 'undefined') {
+        window.location.href = `mailto:${emailDestino}?subject=${asunto}&body=${cuerpo}`;
+      }
+    }
+
+    async function cargarFechasDesdeSheets() {
+      const contProximos = document.getElementById('lista-proximos');
+      const contPasados = document.getElementById('lista-pasados');
+
+      try {
+        const respuesta = await fetch(SHEET_CSV_URL);
+        if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+
+        const textoCSV = await respuesta.text();
+        const lineas = textoCSV.replace(/\r/g, '').trim().split('\n').filter(l => l.trim().length > 0);
+
+        if (lineas.length < 2) {
+          contProximos.innerHTML = '<p style="color: var(--text-muted);">No hay conciertos registrados.</p>';
+          return;
+        }
+
+        // Detección automática del separador (';' en España / ',' en internacional)
+        const separador = lineas[0].includes(';') ? ';' : ',';
+
+        function parsearLinea(linea, sep) {
+          const resultado = [];
+          let cur = '';
+          let enComillas = false;
+          for (let i = 0; i < linea.length; i++) {
+            const c = linea[i];
+            if (c === '"') {
+              enComillas = !enComillas;
+            } else if (c === sep && !enComillas) {
+              resultado.push(cur.trim().replace(/^"|"$/g, ''));
+              cur = '';
+            } else {
+              cur += c;
+            }
+          }
+          resultado.push(cur.trim().replace(/^"|"$/g, ''));
+          return resultado;
+        }
+
+        const cabeceras = parsearLinea(lineas[0], separador).map(h =>
+          h.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        );
+
+        contProximos.innerHTML = '';
+        contPasados.innerHTML = '';
+
+        let totalProximos = 0;
+        let totalPasados = 0;
+
+        for (let i = 1; i < lineas.length; i++) {
+          const valores = parsearLinea(lineas[i], separador);
+          const fila = {};
+          cabeceras.forEach((col, idx) => {
+            fila[col] = (valores[idx] || '').trim();
+          });
+
+          // Lee por nombre o por columna (A, B, C, D, E, F)
+          const fecha = fila.fecha || valores[0] || '';
+          const hora = fila.hora || valores[1] || '';
+          const evento = fila.evento || valores[2] || '';
+          const lugar = fila.lugar || valores[3] || '';
+          const entradasUrl = fila.entradas_url || fila.entradas || valores[4] || '';
+          const estado = (fila.estado || valores[5] || '').toLowerCase().trim();
+
+          // Ignorar filas totalmente vacías
+          if (!fecha && !evento) continue;
+
+          const esPasado = estado === 'pasado';
+          const esSoldOut = estado === 'soldout' || estado === 'agotado';
+          const esCancelado = estado === 'cancelado';
+
+          let botonHTML = '';
+          if (esPasado) {
+            botonHTML = `<span class="badge-past">CONCIERTO FINALIZADO</span>`;
+          } else if (esCancelado) {
+            botonHTML = `<span class="badge-cancelled">CANCELADO</span>`;
+          } else if (esSoldOut) {
+            botonHTML = `<span class="badge-soldout">SOLD OUT</span>`;
+          } else if (entradasUrl && entradasUrl.length > 3) {
+            const link = entradasUrl.startsWith('http') ? entradasUrl : `https://${entradasUrl}`;
+            botonHTML = `<a href="${link}" target="_blank" class="btn btn-primary" style="padding: 6px 20px; font-size: 1.1rem;">ENTRADAS</a>`;
+          } else {
+            botonHTML = `<span style="color: var(--text-muted); font-size: 0.9rem; font-weight: bold;">ENTRADA LIBRE</span>`;
+          }
+
+          const tarjeta = `
+            <div class="concert-card ${esCancelado ? 'card-cancelled' : ''}">
+              <div>
+                <div class="concert-datetime">
+                  ${fecha || 'FECHA POR CONFIRMAR'} ${hora ? '• ' + hora : ''}
+                </div>
+                <div class="concert-title">${evento || 'Concierto'}</div>
+                <div class="concert-place">${lugar || ''}</div>
+              </div>
+              <div style="margin-top: 15px;">
+                ${botonHTML}
+              </div>
+            </div>
+          `;
+
+          if (esPasado) {
+            contPasados.innerHTML += tarjeta;
+            totalPasados++;
+          } else {
+            contProximos.innerHTML += tarjeta;
+            totalProximos++;
+          }
+        }
+
+        if (totalProximos === 0) contProximos.innerHTML = '<p style="color: var(--text-muted);">No hay próximos conciertos programados.</p>';
+        if (totalPasados === 0) contPasados.innerHTML = '<p style="color: #555;">No hay registro de conciertos pasados.</p>';
+
+      } catch (err) {
+        console.error('Error detallado:', err);
+        contProximos.innerHTML = `<p style="color: #eb4426;">Error al cargar conciertos: ${err.message}</p>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarFechasDesdeSheets);
+  </script>
+</body>
+
+</html>
